@@ -55,25 +55,3 @@ public class Stack<Item> implements Iterable<Item>{
 
 
 
-
-
-PROS
-
-
-
-CONS
-
-
-
-
-
-
-
-
-
-
-
-### How to useing
-
-
-
