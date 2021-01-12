@@ -67,7 +67,7 @@ public class Sorting {
             for (int i = 0; i < test.length; i++) {
                 printTestName("Test merging sort", random, length,
                         ", m = ");
-//            sortingHelper.sort(test[i]);
+                sortingHelper.sort(test[i]);
                 checkSorted(test[i]);
             }
         }
@@ -75,27 +75,22 @@ public class Sorting {
         out.println();
     }
 
-    private void checkSorted(Object a){
-        if (a instanceof int[]){
-          checkSorted((int[])a);
+    private void checkSorted(Object a) {
+        if (a instanceof int[]) {
+            checkSorted((int[]) a);
         }
     }
 
-    private void checkSorted(int[] a){
-        for (int i = 0; i < a.length - 1; i++){
-            if (a[i] > a[i+1]) {
-                fail("Array is not sorted at " + i + "-th position: "+ a[i] + " and " + a[i+1]);
+    private void checkSorted(int[] a) {
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                fail("Array is not sorted at " + i + "-th position: " + a[i] + " and " + a[i + 1]);
             }
         }
     }
 
-    private void fail(String message){
+    private void fail(String message) {
 
-    }
-
-    private static enum MergingBuilder {
-
-        abstract void build();
     }
 
     private void createData(int length) {
@@ -108,6 +103,22 @@ public class Sorting {
 
     private void printTestName(String test, TestRandom random, int length, String message) {
         out.println(test + "' length = " + length + ", random = " + random + message);
+    }
+
+    private static enum MergingBuilder {
+        TOP_DOWN {
+            void build() {
+
+            }
+        },
+
+        DOWN_TOP {
+            void build() {
+
+            }
+        };
+
+        abstract void build();
     }
 
     private static class TestRandom extends Random {
